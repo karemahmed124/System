@@ -37,6 +37,23 @@ if(!message.channel.guild) return;
     }
 });
 
+client.on('message', message => {
+
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+// By JàkeY#2019 And Toxic Codes
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+// By JàkeY#2019 And Toxic Codes
+  let args = message.content.split(" ").slice(1);
+// By JàkeY#2019 And Toxic Codes
+  if (command == "say") {
+  if (message.member.id !== "514857011113099289") return message.channel.send('**لا حبي ما يصير هيك 😂 , [Kobe Bot] **');// By JàkeY#2019 And Toxic Codes
+   message.channel.send(args.join("  "))// By JàkeY#2019 And Toxic Codes
+   message.delete()// By JàkeY#2019 And Toxic Codes
+  }
+ });
+
 client.on('message', function(message) {
     if (message.content == "-clear") {
         if (message.member.hasPermission("MANAGE_MESSAGES")) {
